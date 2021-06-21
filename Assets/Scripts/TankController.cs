@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankController : Singleton<TankController>
+public class TankController
 {
-    public Joystick joystick;
-    float speed = 40f;
-    float horiMove = 0f;
-    float vertiMove = 0f;
-    // Start is called before the first frame update
-    void Start()
+
+    public TankController(TankModel tankModel, TankView tankPrefab)
     {
-        
+        TankModel = tankModel;
+        TankView = GameObject.Instantiate<TankView>(tankPrefab);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position += new Vector3(joystick.Horizontal * .01f, 0, joystick.Vertical * .01f);
-    }
+    public TankModel TankModel { get; }
+    public TankView TankView { get; }
+
 }
