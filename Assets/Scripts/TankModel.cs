@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class TankModel
 {
-    public TankModel(float speed, int health)
+    public TankModel(TankData tank)
     {
-        Speed = speed;
-        Health = health;
+        Speed = tank.speed;
+        Health = tank.health;
+        Damage = tank.damage;
     }
 
     public float Speed { get; }
     public int Health { get; }
+    public int Damage { get; }
 }

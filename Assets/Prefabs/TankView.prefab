@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f254c6f3b05987a4fbf8a7225de1bfc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
-    type: 3}
 --- !u!1 &3199260951898568578
 GameObject:
   m_ObjectHideFlags: 0

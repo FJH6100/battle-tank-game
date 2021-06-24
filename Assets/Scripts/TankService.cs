@@ -6,12 +6,14 @@ public class TankService : Singleton<TankService>
 {
     public TankView view;
     public Joystick joystick;
+    public TankData myTank;
+    public GameObject Bullet;
     TankModel model;
     TankController controller;
     // Start is called before the first frame update
     void Start()
     {
-        model = new TankModel(10f, 100);
+        model = new TankModel(myTank);
         controller = new TankController(model, view);
     }
 
@@ -19,5 +21,16 @@ public class TankService : Singleton<TankService>
     void Update()
     {
         controller.TankView.MoveTank(joystick.Horizontal, joystick.Vertical, model.Speed);
+        if (Input.touchCount == 2)
+        {
+            Touch touch = Input.GetTouch(1);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                controller.TankView.Shoot(Bullet);
+            }
+        }
+        if (Input.GetMouseButtonDown(0))
+            controller.TankView.Shoot(Bullet);
     }
 }
